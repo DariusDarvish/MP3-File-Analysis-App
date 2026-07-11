@@ -189,10 +189,9 @@ The parser:
 ---
 ```
 
-## Fututre improvemnts
-
+## Fututre improvments
 
 1. The route currently reads the uploaded MP3 into memory for simplicity and clarity.
-For larger files or production use, the parser could be adapted to operate on a stream, maintaining a small carry-over buffer to handle frames that span chunk boundaries.
+   For larger files or production use, the parser could be adapted to operate on a stream, maintaining a small carry-over buffer to handle frames that span chunk boundaries.
 
 2. The route could inform users that thier file is corrupted.
