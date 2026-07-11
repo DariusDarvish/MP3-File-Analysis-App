@@ -4,20 +4,20 @@ A lightweight Fastify API for validating MP3 files and counting MPEG Version 1 L
 
 ## Features
 
-* Upload an MP3 file using `multipart/form-data`
-* Validates the uploaded file
-* Skips ID3 metadata
-* Detects and ignores Xing/Info header frames
-* Counts valid MPEG Version 1 Layer III frames
-* Written in TypeScript
-* Unit tested with Vitest
+- Upload an MP3 file using `multipart/form-data`
+- Validates the uploaded file
+- Skips ID3 metadata
+- Detects and ignores Xing/Info header frames
+- Counts valid MPEG Version 1 Layer III frames
+- Written in TypeScript
+- Unit tested with Vitest
 
 ---
 
 ## Prerequisites
 
-* Node.js 20+
-* npm
+- Node.js 20+
+- npm
 
 ---
 
@@ -67,9 +67,9 @@ This project uses **Husky** and **lint-staged** to automatically validate code b
 
 During a commit:
 
-* ESLint runs with automatic fixes
-* Prettier formats staged files
-* Unit tests are ran
+- ESLint runs with automatic fixes
+- Prettier formats staged files
+- Unit tests are ran
 
 If linting, formatting, or tests fail the commit is blocked until the issues are resolved.
 
@@ -193,3 +193,4 @@ The parser:
 
 The route currently reads the uploaded MP3 into memory for simplicity and clarity.
 For larger files or production use, the parser could be adapted to operate on a stream, maintaining a small carry-over buffer to handle frames that span chunk boundaries.
+```
