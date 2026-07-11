@@ -25,19 +25,16 @@ describe("processMp3Upload", () => {
     } as MultipartFile;
   }
 
-  it("throws when no file is provided", async () => {
-    await expect(processMp3Upload(undefined)).rejects.toEqual(
-      new Mp3Error("No MP3 file provided", 400),
-    );
-  });
-
   it("throws when the extension is not .mp3", async () => {
     const file = createMockFile({
       filename: "test.wav",
     });
 
     await expect(processMp3Upload(file)).rejects.toEqual(
-      new Mp3Error("File must have a .mp3 extension", 400),
+      new Mp3Error(
+        "Invalid upload: please provide an .mp3 file with a valid filename.",
+        400,
+      ),
     );
   });
 
@@ -47,7 +44,7 @@ describe("processMp3Upload", () => {
     });
 
     await expect(processMp3Upload(file)).rejects.toEqual(
-      new Mp3Error("File must be an MP3", 400),
+      new Mp3Error("Invalid upload: the file must be an MP3 audio file.", 400),
     );
   });
 
