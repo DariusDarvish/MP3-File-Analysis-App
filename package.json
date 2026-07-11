@@ -8,6 +8,7 @@
     "start": "node dist/server.js",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "prepare": "husky",
     "test": "vitest run src --reporter=verbose --silent=false",
     "test:watch": "vitest src",
