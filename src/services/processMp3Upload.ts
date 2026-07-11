@@ -1,3 +1,4 @@
+import { MultipartFile } from "@fastify/multipart";
 import Mp3Error from "../errors/Mp3Error.js";
 import { countMp3Frames } from "../services/mp3FrameCounter.js";
 
@@ -8,10 +9,6 @@ const allowedMimeTypes = new Set([
 ]);
 
 export async function processMp3Upload(file: MultipartFile) {
-  if (!file) {
-    throw new Mp3Error("No MP3 file provided", 400);
-  }
-
   validateMp3Upload(file.filename, file.mimetype);
 
   const buffer = await file.toBuffer();
@@ -31,10 +28,16 @@ export async function processMp3Upload(file: MultipartFile) {
 
 function validateMp3Upload(filename: string, mimetype: string) {
   if (!filename.toLowerCase().endsWith(".mp3")) {
-    throw new Mp3Error("File must have a .mp3 extension", 400);
+    throw new Mp3Error(
+      "Invalid upload: please provide an .mp3 file with a valid filename.",
+      400,
+    );
   }
 
   if (!allowedMimeTypes.has(mimetype)) {
-    throw new Mp3Error("File must be an MP3", 400);
+    throw new Mp3Error(
+      "Invalid upload: the file must be an MP3 audio file.",
+      400,
+    );
   }
 }
