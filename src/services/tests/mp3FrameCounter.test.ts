@@ -25,7 +25,7 @@ describe("mp3FrameCounter", () => {
     expect(countMp3Frames(buffer)).toBe(0);
   });
 
-  it("testing invalid sync", () => {
+  it("testing invalid MP3 files", () => {
     const buffer = readFileSync("src/services/tests/fixtures/invalid-sync.mp3");
 
     expect(countMp3Frames(buffer)).toBe(0);
