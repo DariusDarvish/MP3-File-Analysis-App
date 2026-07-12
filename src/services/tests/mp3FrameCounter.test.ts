@@ -25,7 +25,7 @@ describe("mp3FrameCounter", () => {
     expect(countMp3Frames(buffer)).toBe(0);
   });
 
-  it("ignores Xing header frames", () => {
+  it("testing invalid sync", () => {
     const buffer = readFileSync("src/services/tests/fixtures/invalid-sync.mp3");
 
     expect(countMp3Frames(buffer)).toBe(0);
